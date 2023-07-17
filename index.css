@@ -1,52 +1,23 @@
-.border {
-    background-color: #e62e00;
-    justify-content: center;
-    width: 900px;
-    height: 750px;
+body {
+    background-color: black;
+    overflow: hidden;
+}
+.background {
+    background-image: url("etch-a-sketch.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
     position: absolute;
-    border-radius: 25px;
-    margin: auto;
-    padding: 30px;
-    z-index: -1;
-    position: absolute;
+    height: 100vh;
+    width: 150vh;
 }
 
-.drawingBoard {
+canvas {
     background-color: white;
-    box-shadow: inset 1em 1em 2em black;
-    width: 80%;
-    height: 80%;
-    padding: 0;
     border-radius: 25px;
-    margin: auto; 
-    margin-top: 40px;
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-    background: white;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    z-index: 0;
-}
-
-.knobs {
-    display: flex;
-    width: 100%;
-    padding: 10px;
-    --knobShadow: 10px 5px 5px darkred;
-}
-
-.knobLeft {
-    margin-left: auto;
-    margin-right: 2px;
-    box-shadow: var(--knobShadow);
-}
-
-.knobRight {
-    margin-left: 2px;
-    margin-right: auto; 
-    box-shadow: var(--knobShadow);
+    margin-top: 175px;
+    margin-left: 224px;
+    height: 495px;
+    width: 694px;
+    position: absolute;
 }
