@@ -7,25 +7,23 @@ theDiv.style["grid-template-rows"] = "repeat(100, 1fr)";
 theDiv.style["grid-template-columns"] = "repeat(100, 1fr)";
 theDiv.style.justifyItems = "center";
 
-const bigPixel = document.createElement("button");
-const bigPixelTwo = document.createElement("button");
-theDiv.appendChild(bigPixel);
-theDiv.appendChild(bigPixelTwo);
+function changeColor(buttonClass, color) {
+  buttonClass.style.backgroundColor = color;
+  return;
+}
 
 function drawPixels() {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 42; i++) {
     const pixel = document.createElement("button");
     console.log(pixel);
     pixel.classList.add('pixel');
     pixel.style.height = "100px";
     pixel.style.width = "100px";
+    pixel.addEventListener("click", () => {
+      changeColor(pixel, "black");
+    });
     theDiv.appendChild(pixel);
   }
-}
-
-function changeColor(buttonClass, color) {
-  buttonClass.style.backgroundColor = color;
-  return;
 }
 
 // defining the size for each button at once
@@ -40,6 +38,8 @@ buttons.forEach((button) => {
   });
 });
 
+drawPixels();
+
 const clear = document.createElement("button"); 
 clear.textContent = "CLEAR";
 clear.style.display = "block";
@@ -51,5 +51,3 @@ clear.addEventListener("click", () => {
     changeColor(button, "white");
   });
 });
-
-
