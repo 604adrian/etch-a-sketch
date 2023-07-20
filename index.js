@@ -12,33 +12,48 @@ function changeColor(buttonClass, color) {
   return;
 }
 
-function drawPixels() {
-  for (let i = 0; i < 42; i++) {
-    const pixel = document.createElement("button");
-    console.log(pixel);
-    pixel.classList.add('pixel');
-    pixel.style.height = "100px";
-    pixel.style.width = "100px";
-    pixel.addEventListener("click", () => {
-      changeColor(pixel, "black");
-    });
-    theDiv.appendChild(pixel);
-  }
+
+for (let i = 0; i < 42; i++) {
+  const pixel = document.createElement("div");
+  console.log(pixel);
+  pixel.classList.add("pixel");
+  pixel.style.height = "100px";
+  pixel.style.width = "100px";
+  pixel.style.backgroundColor = "grey";
+  console.log("ffs");
+  theDiv.appendChild(pixel);
 }
 
+/*
+function makeRows(rows, cols) {
+  theDiv.style.setProperty('--grid-rows', rows);
+  theDiv.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows); c++) {
+    let row = document.createElement("div");
+    row.display = "in-line grid";
+    // row.display["grid-template-columns"] = `repeat(${cols}, 1fr)`;
+      for (i = 0; i < cols; i++) {
+        let pixel= document.createElement("div");
+        pixel.innerText = (c + 1);
+        pixel.classList.add('pixel');
+        row.appendChild(pixel);
+      }
+    theDiv.appendChild(row).className = "grid-item";
+  };
+};
+*/
+// drawPixels()
+//makeRows(16, 16);
 // defining the size for each button at once
-const buttons = document.querySelectorAll("button")
-buttons.forEach((button) => {
-  button.style.height = "100px";
-  button.style.width = "100px";
-  button.style.backgroundPosition = "center center";
-  backgroundSize = "100% 100%";
-  button.addEventListener("mouseover", () => {
-    changeColor(button, "black");  
+const pixels = document.querySelectorAll(".pixel")
+pixels.forEach((pixel) => {
+  console.log("hello?");
+  pixel.addEventListener("mouseenter", () => {
+    console.log("help");
+    pixel.style.backgroundColor = "black";
+    changeColor(pixel, "black");  
   });
 });
-
-drawPixels();
 
 const clear = document.createElement("button"); 
 clear.textContent = "CLEAR";
@@ -47,7 +62,7 @@ clear.style.marginTop = "50px";
 theDiv.appendChild(clear);
 
 clear.addEventListener("click", () => {
-  buttons.forEach((button) => {
-    changeColor(button, "white");
+  pixels.forEach((pixel) => {
+    changeColor(pixel, "white");
   });
 });
