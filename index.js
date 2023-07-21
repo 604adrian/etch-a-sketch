@@ -61,9 +61,14 @@ pixels.forEach((pixel) => {
 });
 
 const clear = document.createElement("button"); 
+
 clear.textContent = "CLEAR";
 clear.style.display = "block";
+clear.style.margin = "auto";
 clear.style.marginTop = "50px";
+clear.style.display = "flex";
+clear.style.justifyContent = "center";
+
 theDiv.appendChild(clear);
 
 clear.addEventListener("click", () => {
