@@ -1,31 +1,55 @@
 // defining the DOM node
 const theDiv = document.querySelector("#theDiv");
 
+const border = document.createElement("div");
+border.style.margin = "auto";
+border.style.width = "800px";
+border.style.height = "500px";
+border.style.backgroundColor = "darkred";
+border.style.display = "grid";
+border.style.gridTemplateColumns = "1fr 6fr 1fr";
+border.style.gridTemplateRows = '1fr 4fr 1fr';
+border.style.padding = "20px";
+border.style.marginTop = "50px";
+border.style.borderRadius = "20px"
+
 const theGrid = document.createElement("div");
-theDiv.style.margin = "auto";
-theDiv.style.display = "grid";
-theDiv.style.width = "460px";
-theDiv.style["grid-template-columns"] = "repeat(100, 1fr)";
-theDiv.style["grid-column-gap"] = "0";
-theDiv.style["grid-row-gap"] = "0";
-theDiv.style.rowGap = "0";
-theDiv.style.columnGap = "0";
-theDiv.style["grid-column-gap"] = "0";
+theGrid.style.display = "grid";
+theGrid.style["grid-template-columns"] = "repeat(150, 5px)";
+theGrid.style["grid-template-rows"] = "repeat(90, 5px)";
+theGrid.style["grid-column-gap"] = "0";
+theGrid.style["grid-row-gap"] = "0";
+theGrid.style.rowGap = "0";
+theGrid.style.columnGap = "0";
+theGrid.style["grid-column-gap"] = "0";
+theGrid.style.gridColumn = "2 / 3";
+theGrid.style.grodRow = "2 / 3";
+theGrid.style.backgroundColor = "grey"
+theGrid.style.width= "750px";
+theGrid.style.height= "450px";
+theGrid.style.margin = "0";
+theGrid.style.padding = "0";
+theGrid.style.columnGap = "0";
+theGrid.style.rowGap = "0";
 
 function changeColor(buttonClass, color) {
   buttonClass.style.backgroundColor = color;
   return;
 }
 
-for (let i = 0; i < 4200; i++) {
+for (let i = 0; i < 13500; i++) {
   const pixel = document.createElement("div");
   pixel.classList.add("pixel");
   pixel.style.height = "5px";
   pixel.style.width = "5px";
-  pixel.style.backgroundColor = "grey";
+  pixel.style.backgroundColor = "linen";
   pixel.style.margin = "0";
-  theDiv.appendChild(pixel);
+  theGrid.appendChild(pixel);
 }
+
+// nodelist
+border.appendChild(theGrid);
+theDiv.appendChild(border);
 
 const pixels = document.querySelectorAll(".pixel")
 pixels.forEach((pixel) => {
@@ -44,6 +68,8 @@ theDiv.appendChild(clear);
 
 clear.addEventListener("click", () => {
   pixels.forEach((pixel) => {
-    changeColor(pixel, "grey");
+    changeColor(pixel, "linen");
   });
 });
+
+
